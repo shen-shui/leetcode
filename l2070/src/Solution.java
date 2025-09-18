@@ -7,16 +7,45 @@ import java.util.Arrays;
  */
 public class Solution {
     public int[] maximumBeauty(int[][] items, int[] queries) {
+        Arrays.sort(items, (a, b) -> a[0] - b[0]);
+        int[] ans = new int[queries.length];
 
+        for (int i = 1; i < items.length; i++) {
+            items[i][1] = Math.max(items[i-1][1], items[i][1]);
+        }
+
+        for (int i = 0; i < queries.length; i++) {
+            int query = queries[i];
+            int index = lowerBound(items, query + 1) - 1;
+            if (index == -1) {
+                ans[i] = 0;
+                continue;
+            }
+            ans[i] = items[index][1];
+        }
+        return ans;
     }
 
     // []
-    private int lowerBound(int[] nums, int left, int target) {
-
+    private int lowerBound(int[][] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid][0] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.countFairPairs(new int[]{0,1,7,4,4,5}, 3, 6));
+        int[][] items = new int[][]{
+            {10,1000}
+        };
+        System.out.println(Arrays.toString(solution.maximumBeauty(items, new int[]{1})));
     }
 }
