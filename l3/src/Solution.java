@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Solution {
+    // 666
     // 滑动窗口
 //    //外层循环扩展右边界，内层循环扩展左边界
 //    for (int l = 0, r = 0 ; r < n ; r++) {
