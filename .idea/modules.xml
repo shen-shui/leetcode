@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/l1004/l1004.iml" filepath="$PROJECT_DIR$/l1004/l1004.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l1011/l1011.iml" filepath="$PROJECT_DIR$/l1011/l1011.iml" />
       <module fileurl="file://$PROJECT_DIR$/l1016/l1016.iml" filepath="$PROJECT_DIR$/l1016/l1016.iml" />
       <module fileurl="file://$PROJECT_DIR$/l1040/l1040.iml" filepath="$PROJECT_DIR$/l1040/l1040.iml" />
       <module fileurl="file://$PROJECT_DIR$/l1052/l1052.iml" filepath="$PROJECT_DIR$/l1052/l1052.iml" />
@@ -15,6 +16,8 @@
       <module fileurl="file://$PROJECT_DIR$/l1234/l1234.iml" filepath="$PROJECT_DIR$/l1234/l1234.iml" />
       <module fileurl="file://$PROJECT_DIR$/l1248/l1248.iml" filepath="$PROJECT_DIR$/l1248/l1248.iml" />
       <module fileurl="file://$PROJECT_DIR$/l125/l125.iml" filepath="$PROJECT_DIR$/l125/l125.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l1283/l1283.iml" filepath="$PROJECT_DIR$/l1283/l1283.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l1287/l1287.iml" filepath="$PROJECT_DIR$/l1287/l1287.iml" />
       <module fileurl="file://$PROJECT_DIR$/l1297/l1297.iml" filepath="$PROJECT_DIR$/l1297/l1297.iml" />
       <module fileurl="file://$PROJECT_DIR$/l13/l13.iml" filepath="$PROJECT_DIR$/l13/l13.iml" />
       <module fileurl="file://$PROJECT_DIR$/l1343/l1343.iml" filepath="$PROJECT_DIR$/l1343/l1343.iml" />
@@ -48,6 +51,7 @@
       <module fileurl="file://$PROJECT_DIR$/l2106/l2106.iml" filepath="$PROJECT_DIR$/l2106/l2106.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2134/l2134.iml" filepath="$PROJECT_DIR$/l2134/l2134.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2156/l2156.iml" filepath="$PROJECT_DIR$/l2156/l2156.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l2187/l2187.iml" filepath="$PROJECT_DIR$/l2187/l2187.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2269/l2269.iml" filepath="$PROJECT_DIR$/l2269/l2269.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2271/l2271.iml" filepath="$PROJECT_DIR$/l2271/l2271.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2300/l2300.iml" filepath="$PROJECT_DIR$/l2300/l2300.iml" />
@@ -63,6 +67,7 @@
       <module fileurl="file://$PROJECT_DIR$/l2563/l2563.iml" filepath="$PROJECT_DIR$/l2563/l2563.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2653/l2653.iml" filepath="$PROJECT_DIR$/l2653/l2653.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2730/l2730.iml" filepath="$PROJECT_DIR$/l2730/l2730.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l275/l275.iml" filepath="$PROJECT_DIR$/l275/l275.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2762/l2762.iml" filepath="$PROJECT_DIR$/l2762/l2762.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2779/l2779.iml" filepath="$PROJECT_DIR$/l2779/l2779.iml" />
       <module fileurl="file://$PROJECT_DIR$/l2781/l2781.iml" filepath="$PROJECT_DIR$/l2781/l2781.iml" />
@@ -82,6 +87,7 @@
       <module fileurl="file://$PROJECT_DIR$/l3134/l3134.iml" filepath="$PROJECT_DIR$/l3134/l3134.iml" />
       <module fileurl="file://$PROJECT_DIR$/l3258/l3258.iml" filepath="$PROJECT_DIR$/l3258/l3258.iml" />
       <module fileurl="file://$PROJECT_DIR$/l3261/l3261.iml" filepath="$PROJECT_DIR$/l3261/l3261.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l3296/l3296.iml" filepath="$PROJECT_DIR$/l3296/l3296.iml" />
       <module fileurl="file://$PROJECT_DIR$/l3298/l3298.iml" filepath="$PROJECT_DIR$/l3298/l3298.iml" />
       <module fileurl="file://$PROJECT_DIR$/l3306/l3306.iml" filepath="$PROJECT_DIR$/l3306/l3306.iml" />
       <module fileurl="file://$PROJECT_DIR$/l3325/l3325.iml" filepath="$PROJECT_DIR$/l3325/l3325.iml" />
@@ -108,11 +114,14 @@
       <module fileurl="file://$PROJECT_DIR$/l744/l744.iml" filepath="$PROJECT_DIR$/l744/l744.iml" />
       <module fileurl="file://$PROJECT_DIR$/l76/l76.iml" filepath="$PROJECT_DIR$/l76/l76.iml" />
       <module fileurl="file://$PROJECT_DIR$/l825/l825.iml" filepath="$PROJECT_DIR$/l825/l825.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l875/l875.iml" filepath="$PROJECT_DIR$/l875/l875.iml" />
       <module fileurl="file://$PROJECT_DIR$/l904/l904.iml" filepath="$PROJECT_DIR$/l904/l904.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l911/l911.iml" filepath="$PROJECT_DIR$/l911/l911.iml" />
       <module fileurl="file://$PROJECT_DIR$/l930/l930.iml" filepath="$PROJECT_DIR$/l930/l930.iml" />
       <module fileurl="file://$PROJECT_DIR$/l981/l981.iml" filepath="$PROJECT_DIR$/l981/l981.iml" />
       <module fileurl="file://$PROJECT_DIR$/l992/l992.iml" filepath="$PROJECT_DIR$/l992/l992.iml" />
       <module fileurl="file://$PROJECT_DIR$/lcp68/lcp68.iml" filepath="$PROJECT_DIR$/lcp68/lcp68.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lcp8/lcp8.iml" filepath="$PROJECT_DIR$/lcp8/lcp8.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
     </modules>
   </component>

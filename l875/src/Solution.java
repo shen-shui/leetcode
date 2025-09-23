@@ -4,39 +4,35 @@ class Solution {
     /**
      * 二分答案 time
      */
-    // [)
-    public int shipWithinDays(int[] weights, int days) {
-        int sum = Arrays.stream(weights).sum();
-        int left = sum / days;
-        int right = sum + 1;
-        while (left < right) {
+    // ()
+    public int minEatingSpeed(int[] piles, int h) {
+        Arrays.sort(piles);
+        int n = piles.length;
+        int left = piles[0] * n / h - 1;
+        int right = piles[n - 1] + 1;
+        while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (!check(weights, mid, days)) {
-                left = mid + 1;
+            if (!check(piles, mid, h)) {
+                left = mid;
             } else {
                 right = mid;
             }
         }
-        return left;
+        return right;
     }
 
-    private boolean check(int[] weights, int w, int days) {
+    private boolean check(int[] piles, int k, int h) {
         int sum = 0;
-        int day = 1;
-        for (int weight : weights) {
-            if (weight > w) return false;
-            sum += weight;
-            if (sum > w) {
-                sum = weight;
-                day++;
-            }
-            if (day > days) return false;
+        if (k == 0) return false;
+        for (int pile : piles) {
+            sum += (pile + k - 1) / k;
+            if (sum > h) return false;
         }
         return true;
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.shipWithinDays(new int[]{1,2,3,4,5,6,7,8,9,10}, 5));
+        System.out.println(solution.minEatingSpeed(new int[]{312884470}, 968709470));
     }
 }
