@@ -1,0 +1,96 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      module:
+        description: 'Module directory to run (e.g. l2070)'
+        required: false
+        default: ''
+      mainClass:
+        description: 'Main class to run (default: Solution)'
+        required: false
+        default: 'Solution'
+      javaVersion:
+        description: 'Java version to use'
+        required: false
+        default: '17'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ github.event.inputs.javaVersion || '17' }}
+
+      - name: Compile each module separately
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          # Find module src directories like ./l2070/src
+          mapfile -t srcdirs < <(find . -mindepth 2 -maxdepth 2 -type d -name src | sort)
+          if [ ${#srcdirs[@]} -eq 0 ]; then
+            echo "No src directories found; nothing to compile."
+            exit 0
+          fi
+          for src in "${srcdirs[@]}"; do
+            module_dir="$(dirname "$src")"
+            outdir="build/${module_dir#./}"
+            mkdir -p "$outdir"
+            files=$(find "$src" -type f -name '*.java' | sort)
+            if [ -z "$files" ]; then
+              echo "No Java files in $src; skipping."
+              continue
+            fi
+            echo "Compiling $module_dir -> $outdir"
+            javac -encoding UTF-8 -d "$outdir" $files
+          done
+
+      - name: Upload compiled classes
+        uses: actions/upload-artifact@v4
+        with:
+          name: classes
+          path: build
+
+  run:
+    if: ${{ github.event.inputs.module != '' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download compiled classes
+        uses: actions/download-artifact@v4
+        with:
+          name: classes
+          path: build
+
+      - name: Run selected module
+        shell: bash
+        env:
+          MODULE: ${{ github.event.inputs.module }}
+          MAIN_CLASS: ${{ github.event.inputs.mainClass || 'Solution' }}
+        run: |
+          set -euo pipefail
+          outdir="build/${MODULE}"
+          if [ ! -d "$outdir" ]; then
+            echo "Module '$MODULE' not found. Available modules:"
+            find build -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort || true
+            exit 1
+          fi
+          echo "Running ${MAIN_CLASS} from ${outdir}"
+          java -cp "$outdir" "$MAIN_CLASS"
+
+
