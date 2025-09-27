@@ -5,7 +5,7 @@ import java.util.Map;
 class Solution {
     /**
      * 二分答案 t
-     * 屎山 测了好几次把特殊数据排除了做出来了
+     * 屎山 测了好几次把特殊数据排除了做出来了 check()
      */
     // ()
     public int earliestSecondToMarkIndices(int[] nums, int[] changeIndices) {
@@ -15,7 +15,7 @@ class Solution {
         int right = changeIndices.length + 1;
         while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (!check(changeIndices, nums, mid)) {
+            if (!checkOpt(changeIndices, nums, mid)) {
                 left = mid;
             } else {
                 right = mid;
@@ -46,8 +46,34 @@ class Solution {
         return false;
     }
 
+    private boolean checkOpt(int[] changeIndices, int[] nums, int mid) {
+        // 记录可以用来减num的时间
+        int cnt = 0;
+        // 记录已经标记了多少个，总共需要标记 nums.length 个
+        // 还可以优化，直接初始化pos数组全部为-1，如果某一个位置更新完最后位置还是-1，就说明当前时间无法标记该位置，直接返回false
+        int flag = 0;
+        // 使用pos记录在mid时间下，最后一次出现某下标的下标，最后一次出现意味着必须要进行标记，否则会失败
+        int[] pos = new int[nums.length + 1];
+        int len = Math.min(mid, changeIndices.length);
+        for (int i = 0; i < len; i++) {
+            pos[changeIndices[i]] = i;
+        }
+
+        for (int i = 0; i < len; i++) {
+            if (i == pos[changeIndices[i]]) {
+                flag++;
+                cnt -= nums[changeIndices[i] - 1];
+                if (cnt < 0) return false;
+                if (flag == nums.length) return true;
+            } else {
+                cnt++;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.earliestSecondToMarkIndices(new int[]{3,0,5,2,0,2}, new int[]{3,3,1,5,6,2,4,2,4,4,4,1,3,6,5,1,5,5,1,2,5}));
+        System.out.println(solution.earliestSecondToMarkIndices(new int[]{2,2,0}, new int[]{2,2,2,2,3,2,2,1}));
     }
 }
